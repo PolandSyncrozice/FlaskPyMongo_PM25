@@ -1,5 +1,6 @@
 import pandas as pd
 import matplotlib.pyplot as plt
+import seaborn as sns; sns.set()
 import json
 
 
@@ -13,10 +14,9 @@ def toBarplot(data):
     df['date'] = pd.to_datetime(df.date)
     df['pm25'] = pd.to_numeric(df.pm25)
 
-
     df_2018 = df.loc[(df['date'].dt.year == 2018) & (df['date'].dt.month >= 10)]
     df_2019 = df.loc[(df['date'].dt.year == 2019)]
-    df_2020 = df.loc[(df['date'].dt.year == 2020) & (df['date'].dt.month < 3)]
+    df_2020 = df.loc[(df['date'].dt.year == 2020) & (df['date'].dt.month <= 12)]
     df = df_2018.append(df_2019.append(df_2020), ignore_index=True)
 
     df = df.groupby([df['date'].dt.year.rename('year'), df['date'].dt.month.rename('month')])['pm25'].apply(lambda x: (x>100).sum()).reset_index()
@@ -34,7 +34,6 @@ def toBarplot(data):
                     11: "Nov",
                     12: "Dec"}
     df['month'] = df['month'].map(month_to_short)
-
     df['year'] = df['year'].astype(str)
     df['month'] = df['month'].astype(str)
 
@@ -54,8 +53,9 @@ def toBarplot(data):
     figure.savefig('./'+'static/city/'+city+'_bar.png', dpi=150)
 
 def toHeatplot(data):
-    city = "Bangkok"
 
+    city = "Bangkok"
+    df = pd.DataFrame(data)
     df = df.loc[df['pm25']!=' ']
     df = df[['date','pm25']]
 
@@ -92,7 +92,7 @@ def toHeatplot(data):
 
     df_2018 = df.loc[(df['date'].dt.year == 2018) & (df['date'].dt.month >= 10)].reset_index(drop=True)
     df_2019 = df.loc[(df['date'].dt.year == 2019)].reset_index(drop=True)
-    df_2020 = df.loc[(df['date'].dt.year == 2020) & (df['date'].dt.month < 3)].reset_index(drop=True)
+    df_2020 = df.loc[(df['date'].dt.year == 2020) & (df['date'].dt.month <= 12)].reset_index(drop=True)
     df = df_2018.append(df_2019.append(df_2020), ignore_index=True)
     
     df = df.pivot(index='month_year', columns='day', values='pm25')
@@ -105,4 +105,4 @@ def toHeatplot(data):
     sns.set(font_scale = 2)
     ax = sns.heatmap(df,annot=True, fmt=".0f", cmap="YlOrRd", linewidths=0.05, vmin=0, vmax=200)
     figure = ax.get_figure()    
-    figure.savefig('./City_Heatmap/'+city+'.png', dpi=150)
+    figure.savefig('./static/city/'+city+'_heat.png', dpi=150)

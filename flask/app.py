@@ -9,7 +9,7 @@ app = Flask(__name__,static_url_path='', static_folder='static',template_folder=
 def index():
     return render_template('index.html')
 
-@app.route('/<name>')
+@app.route('/city/<name>')
 def map_selected(name):
     return render_template('map_selected.html',name=name)
 

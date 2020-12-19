@@ -10,7 +10,7 @@
 
 import pandas as pd
 import matplotlib.pyplot as plt
-
+import json
 
 # ## Read .csv file
 # ให้นำ .csv ไปใส่ใน folder ชื่อ City แล้วใส่ชื่อเมืองที่จะนำเข้าโปรแกรม
@@ -18,8 +18,8 @@ import matplotlib.pyplot as plt
 # In[327]:
 
 
-city = "Bangkok"
-df = pd.read_csv('./City/'+ city +'.csv')
+# city = "Bangkok"
+# df = pd.read_csv('./City/'+ city +'.csv')
 
 
 # ## Process flow

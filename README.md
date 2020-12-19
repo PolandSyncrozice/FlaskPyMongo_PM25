@@ -1,5 +1,4 @@
 # FlaskPyMongo_PM25
-ลูกหรั่ง Team :shipit:
 - [x] PM 2.5 Topic database 2 computer science Thammasat University Rangsit Campus
 
 1. JS
@@ -15,3 +14,12 @@ Refs.
    - https://pythonbasics.org/#Flask-Tutorial
 2. Docker on Ubuntu
    - https://www.digitalocean.com/community/tutorials/how-to-build-and-deploy-a-flask-application-using-docker-on-ubuntu-18-04
+   
+ลูกหรั่ง Team :shipit:
+>ELNjn0
+>>RabbitNo
+>Amaterasu
+>Poland
+>Jonathan
+>PussySlayer
+>JuniorNkr

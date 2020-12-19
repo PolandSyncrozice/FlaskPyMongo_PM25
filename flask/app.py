@@ -39,8 +39,8 @@ def pm25City(city):
     a = []
     for x in client['cs457'][city].find({'date': {"$regex": "/*"}}):
         a.append({'date': x['date'], 'pm25': x[' pm25']})
-    plot.toBarplot(a)
-    plot.toHeatplot(a)
+    plot.toBarplot(a,city)
+    plot.toHeatplot(a,city)
     return jsonify(a)
 
 

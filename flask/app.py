@@ -14,9 +14,25 @@ def map_selected(name):
     return render_template('map_selected.html',name=name)
 
 @app.route('/api/<city>/<year>/<month>',methods=['GET', 'POST'])
-def pm25(city,year,month):
+def pm25OneMonth(city,year,month):
     a = []
     for x in client.cs457.Bangkok.find({'date':{ "$regex": year+"/"+month+"/*" } }):
+        a.append({'date':x['date'],'pm25':x[' pm25']})
+    # gen_pic(a)
+    return jsonify(a)
+
+@app.route('/api/<city>/<year>',methods=['GET', 'POST'])
+def pm25Year(city,year):
+    a = []
+    for x in client.cs457.Bangkok.find({'date':{ "$regex": year+"/*" } }):
+        a.append({'date':x['date'],'pm25':x[' pm25']})
+    # gen_pic(a)
+    return jsonify(a)
+
+@app.route('/api/<city>',methods=['GET', 'POST'])
+def pm25City(city):
+    a = []
+    for x in client.cs457.Bangkok.find({'date':{ "$regex": "/*" } }):
         a.append({'date':x['date'],'pm25':x[' pm25']})
     # gen_pic(a)
     return jsonify(a)

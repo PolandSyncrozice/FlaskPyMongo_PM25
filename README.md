@@ -2,11 +2,10 @@
 
 DATABASE 2 CSTU
 
-JS
-FLASK
-MONGODB
-
-Tensorflow
-  Library
+1.JS
+2.FLASK
+3.MONGODB
+4.Tensorflow
+  - Library
     - Seaborn
     - Matplotlib.pyplot

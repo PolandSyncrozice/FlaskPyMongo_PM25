@@ -1,19 +1,237 @@
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title class="title_province">CS457</title>
-    </head>
-    <body>
-        <h2 style="text-align: center;" id="name_province">{{name}}</h2>
-        <div style="display: flex; justify-content: center; align-items: center;" class="province_contain">
-            <img id="province_img" src="/thumbnail.png" />
-        </div>
 
-    </body>
-    <style>
-        .province_contain img{
-            width: 100%;
-            height: 100%;
+<head>
+    <meta charset="utf-8">
+    <ul class="topnav">
+        <li><a class="active" href="index.html">Home</a></li>
+        <li class="icon">
+            <a href="javascript:void(0);" style="font-size:15px;" onclick="myFunction()">☰</a>
+        </li>
+    </ul>
+    <title class="title_province">CS457</title>
+    <script src="map_selected.js"></script>
+</head>
+
+<body>
+    <h1 style="text-align: center;" id="name_province"></h1>
+    <div class="container">
+        <div class="card card0">
+            <div class="border">
+                <h2>Barplot</h2>
+                <div class="icons">
+                    <i class="fa fa-codepen" aria-hidden="true"></i>
+                    <i class="fa fa-instagram" aria-hidden="true"></i>
+                    <i class="fa fa-dribbble" aria-hidden="true"></i>
+                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>
+        <div class="card card1">
+            <div class="border">
+                <h2>Heatmap</h2>
+                <div class="icons">
+                    <i class="fa fa-codepen" aria-hidden="true"></i>
+                    <i class="fa fa-instagram" aria-hidden="true"></i>
+                    <i class="fa fa-dribbble" aria-hidden="true"></i>
+                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<style>
+    body {
+        background: linear-gradient(120deg, #3b5998, #FFFFFF);
+    }
+
+    .container {
+        height: 10vh;
+        width: 50vw;
+        max-height: 800px;
+        max-width: 1280px;
+        min-height: 600px;
+        min-width: 1000px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin: 0 auto;
+    }
+
+    .border {
+        height: 369px;
+        width: 290px;
+        background: transparent;
+        border-radius: 10px;
+        transition: border 1s;
+        position: relative;
+        border: 1px solid rgb(0, 0, 0);
+    }
+
+    .card {
+        height: 379px;
+        width: 300px;
+        background: #808080;
+        border-radius: 10px;
+        transition: background 0.8s;
+        overflow: hidden;
+        background: #000;
+        box-shadow: 0 70px 63px -60px #000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+
+    .card0 {
+        background: url("https://www.img.in.th/images/520aca7a01ab155c315986b17e101d13.png") center center no-repeat;
+        background-size: 300px;
+    }
+
+    .card0:hover {
+        background: url("https://www.img.in.th/images/520aca7a01ab155c315986b17e101d13.png") left center no-repeat;
+        background-size: 310px;
+    }
+
+    .card0:hover h2 {
+        opacity: 1;
+    }
+
+    .card0:hover .fa {
+        opacity: 1;
+    }
+
+    .card1 {
+        background: url("https://www.img.in.th/images/b669b64807ffbafe14af35e17750ab9a.png") center center no-repeat;
+        background-size: 300px;
+    }
+
+    .card1:hover {
+        background: url("https://www.img.in.th/images/b669b64807ffbafe14af35e17750ab9a.png") left center no-repeat;
+        background-size: 310px;
+    }
+
+    .card1:hover h2 {
+        opacity: 1;
+    }
+
+    .card1:hover .fa {
+        opacity: 1;
+    }
+
+    .card2 {
+        background: url("https://i.pinimg.com/originals/ee/85/08/ee850842e68cfcf6e3943c048f45c6d1.jpg") center center no-repeat;
+        background-size: 300px;
+    }
+
+    .card2:hover {
+        background: url("https://i.pinimg.com/originals/ee/85/08/ee850842e68cfcf6e3943c048f45c6d1.jpg") left center no-repeat;
+        background-size: 600px;
+    }
+
+    .card2:hover h2 {
+        opacity: 1;
+    }
+
+    .card2:hover .fa {
+        opacity: 1;
+    }
+
+    h2 {
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        color: #000000;
+        margin: 20px;
+        opacity: 0;
+        transition: opacity 1s;
+    }
+
+    .fa {
+        opacity: 0;
+        transition: opacity 1s;
+    }
+
+    .icons {
+        position: absolute;
+        fill: #fff;
+        color: #fff;
+        height: 130px;
+        top: 226px;
+        width: 50px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+
+    ul.topnav {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #333;
+    }
+
+    ul.topnav li {
+        float: left;
+    }
+
+    ul.topnav li a {
+        display: inline-block;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        transition: 0.3s;
+        font-size: 17px;
+    }
+
+    ul.topnav li a:hover {
+        background-color: #111;
+    }
+
+    ul.topnav li.icon {
+        display: none;
+    }
+
+    @media screen and (max-width:680px) {
+        ul.topnav li:not(:first-child) {
+            display: none;
         }
-    </style>
+
+        ul.topnav li.icon {
+            float: right;
+            display: inline-block;
+        }
+    }
+
+    @media screen and (max-width:680px) {
+        ul.topnav.responsive {
+            position: relative;
+        }
+
+        ul.topnav.responsive li.icon {
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+
+        ul.topnav.responsive li {
+            float: none;
+            display: inline;
+        }
+
+        ul.topnav.responsive li a {
+            display: block;
+            text-align: left;
+        }
+    }
+
+    .province_contain img {
+        width: 100%;
+        height: 100%;
+    }
+</style>
+
 </html>

@@ -1,5 +1,6 @@
 from flask import Flask, render_template, jsonify
 from pymongo import MongoClient
+import plot
 
 client = MongoClient('mongodb://54.254.190.113:27017/')
 
@@ -35,6 +36,8 @@ def pm25City(city):
     for x in client.cs457.Bangkok.find({'date':{ "$regex": "/*" } }):
         a.append({'date':x['date'],'pm25':x[' pm25']})
     # gen_pic(a)
+    plot.toBarplot(a)
+    plot.toHeatplot(a)
     return jsonify(a)
 
 if __name__ == '__main__':

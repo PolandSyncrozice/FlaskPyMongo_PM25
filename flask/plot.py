@@ -4,9 +4,7 @@ import seaborn as sns; sns.set()
 import json
 
 
-def toBarplot(data):
-
-    city = "Bangkok"
+def toBarplot(data,city):
     df = pd.DataFrame(data)
     df = df.loc[df['pm25']!=' ']
     df = df[['date','pm25']]
@@ -52,9 +50,8 @@ def toBarplot(data):
     figure = ax.get_figure()    
     figure.savefig('./'+'static/city/'+city+'_bar.png', dpi=150)
 
-def toHeatplot(data):
+def toHeatplot(data,city):
 
-    city = "Bangkok"
     df = pd.DataFrame(data)
     df = df.loc[df['pm25']!=' ']
     df = df[['date','pm25']]

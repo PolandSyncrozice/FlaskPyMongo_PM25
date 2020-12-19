@@ -40,18 +40,33 @@
             </div>
         </div>
     </div>
+    
+    <div class="selected_show_img">
+        <img src="/static/thumbnail.png"/>
+    </div>
 </body>
 <style>
     body {
         background: linear-gradient(120deg, #3b5998, #FFFFFF);
     }
-
+    .selected_show_img{
+        /* height: calc(100% - 226px); */
+        height: auto;
+        width: auto;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: 48px;
+    }
+    .selected_show_img img{
+        
+    }
     .container {
         height: 10vh;
         width: 50vw;
-        max-height: 800px;
+        /* max-height: 800px;
         max-width: 1280px;
-        min-height: 600px;
+        min-height: 600px; */
         min-width: 1000px;
         display: flex;
         justify-content: space-around;
@@ -60,7 +75,7 @@
     }
 
     .border {
-        height: 369px;
+        height: 68px;
         width: 290px;
         background: transparent;
         border-radius: 10px;
@@ -70,7 +85,7 @@
     }
 
     .card {
-        height: 379px;
+        height: 78px;
         width: 300px;
         background: #808080;
         border-radius: 10px;
@@ -86,12 +101,12 @@
 
     .card0 {
         background: url("https://www.img.in.th/images/520aca7a01ab155c315986b17e101d13.png") center center no-repeat;
-        background-size: 300px;
+        background-size: 70px;
     }
 
     .card0:hover {
-        background: url("https://www.img.in.th/images/520aca7a01ab155c315986b17e101d13.png") left center no-repeat;
-        background-size: 310px;
+        background: url("https://www.img.in.th/images/520aca7a01ab155c315986b17e101d13.png") center right no-repeat;
+        background-size: 74px;
     }
 
     .card0:hover h2 {
@@ -104,12 +119,12 @@
 
     .card1 {
         background: url("https://www.img.in.th/images/b669b64807ffbafe14af35e17750ab9a.png") center center no-repeat;
-        background-size: 300px;
+        background-size: 64px;
     }
 
     .card1:hover {
-        background: url("https://www.img.in.th/images/b669b64807ffbafe14af35e17750ab9a.png") left center no-repeat;
-        background-size: 310px;
+        background: url("https://www.img.in.th/images/b669b64807ffbafe14af35e17750ab9a.png") center right no-repeat;
+        background-size: 78px;
     }
 
     .card1:hover h2 {

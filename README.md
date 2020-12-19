@@ -1,6 +1,6 @@
 # FlaskPyMongo_PM25
 
-- [x] PM 2.5 Topic database 2 computer science thammasat university
+- [x] PM 2.5 Topic database 2 computer science Thammasat University Rangsit Campus
 
 1. JS
 2. FLASK

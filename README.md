@@ -23,5 +23,3 @@ Refs.
 >>Jonathan
 >>PussySlayer
 >>JuniorNkr
-
-!(https://sv1.picz.in.th/images/2020/12/19/jrY9TP.png)

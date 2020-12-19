@@ -24,4 +24,4 @@ Refs.
 >>PussySlayer
 >>JuniorNkr
 
-![Alt text](https://sv1.picz.in.th/images/2020/12/19/jrY9TP.png)
+[Alt text](https://sv1.picz.in.th/images/2020/12/19/jrY9TP.png)

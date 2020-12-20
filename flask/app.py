@@ -2,7 +2,15 @@ from flask import Flask, render_template, jsonify
 from pymongo import MongoClient
 import plot
 
-client = MongoClient("mongodb://localhost:27017")
+import os
+from os.path import join, dirname
+from dotenv import load_dotenv
+
+dotenv_path = join(dirname(__file__), '.env')
+load_dotenv(dotenv_path)
+
+url = os.environ.get('DBURL') 
+client = MongoClient(url)
 
 app = Flask(__name__, static_url_path='',
             static_folder='static', template_folder='templates')

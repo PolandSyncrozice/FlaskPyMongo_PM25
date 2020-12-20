@@ -50,6 +50,7 @@ def toBarplot(data,city):
     figure = ax.get_figure()    
     figure.savefig('./static/cities/'+city+'_bar.png', dpi=150)
 
+
 def toHeatplot(data,city):
     df = pd.DataFrame(data)
     df = df.loc[df['pm25']!=' ']
@@ -102,3 +103,5 @@ def toHeatplot(data,city):
     ax = sns.heatmap(df,annot=True, fmt=".0f", cmap="YlOrRd", linewidths=0.05, vmin=0, vmax=200)
     figure = ax.get_figure()    
     figure.savefig('./static/cities/'+city+'_heat.png', dpi=150)
+
+    

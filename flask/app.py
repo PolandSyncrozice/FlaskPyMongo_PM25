@@ -17,7 +17,7 @@ def index():
 def map_selected(city):
     data = getPM25ByCity(city)
     if not data:
-        return "No data"
+        return render_template('showMessage.html')
     plot.toBarplot(data,city)
     plot.toHeatplot(data,city)
     return render_template('map_selected.html', city=city)

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        background: linear-gradient(90deg, #3b5998, #FFFFFF);
+    }
+
+    #monitor {
+        background: #000;
+        position: fixed;
+        border-top: 3px solid #888;
+        margin: 5%;
+        padding: 2% 2% 4% 2%;
+        border-radius: 10px;
+        border-bottom-left-radius: 50% 2%;
+        border-bottom-right-radius: 50% 2%;
+        transition: margin-right 1s;
+    }
+
+    #monitor:after {
+        content: '';
+        display: block;
+        position: absolute;
+        bottom: 3%;
+        left: 36%;
+        height: .5%;
+        width: 28%;
+        background: #ddd;
+        border-radius: 50%;
+        box-shadow: 0 0 3px 0 white;
+    }
+
+    #monitorscreen {
+        position: relative;
+        background-color: #777;
+        background-size: cover;
+        background-position: top center;
+        height: 0;
+        padding-bottom: 56.25%;
+        position: relative;
+        overflow: hidden;
+    }
+    
+
+    @media all and (min-width: 960px) {
+        #monitor {
+            -webkit-animation: tvflicker .2s infinite alternate;
+            -moz-animation: tvflicker .5s infinite alternate;
+            -o-animation: tvflicker .5s infinite alternate;
+            animation: tvflicker .5s infinite alternate;
+        }
+
+        @-webkit-keyframes tvflicker {
+            0% {
+                box-shadow: 0 0 100px 0 rgba(200, 235, 255, 0.4);
+            }
+
+            100% {
+                box-shadow: 0 0 95px 0 rgba(200, 230, 255, 0.45);
+            }
+        }
+
+        @-moz-keyframes tvflicker {
+            0% {
+                box-shadow: 0 0 100px 0 rgba(225, 235, 255, 0.4);
+            }
+
+            100% {
+                box-shadow: 0 0 60px 0 rgba(200, 220, 255, 0.6);
+            }
+        }
+
+        @-o-keyframes tvflicker {
+            0% {
+                box-shadow: 0 0 100px 0 rgba(225, 235, 255, 0.4);
+            }
+
+            100% {
+                box-shadow: 0 0 60px 0 rgba(200, 220, 255, 0.6);
+            }
+        }
+
+        @keyframes tvflicker {
+            0% {
+                box-shadow: 0 0 100px 0 rgba(225, 235, 255, 0.4);
+            }
+
+            100% {
+                box-shadow: 0 0 60px 0 rgba(200, 220, 255, 0.6);
+            }
+        }
+    }
+
+    #container {
+        max-width: 1024px;
+        margin: auto;
+    }
+
+    ul.topnav {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #333;
+    }
+
+    ul.topnav li {
+        float: left;
+    }
+
+    ul.topnav li a {
+        display: inline-block;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        transition: 0.3s;
+        font-size: 17px;
+    }
+
+    ul.topnav li a:hover {
+        background-color: #111;
+    }
+
+    ul.topnav li.icon {
+        display: none;
+    }
+
+    @media screen and (max-width:680px) {
+        ul.topnav li:not(:first-child) {
+            display: none;
+        }
+
+        ul.topnav li.icon {
+            /* float: right; */
+            display: inline-block;
+        }
+    }
+
+    @media screen and (max-width:680px) {
+        ul.topnav.responsive {
+            position: relative;
+        }
+
+        ul.topnav.responsive li.icon {
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+
+        ul.topnav.responsive li {
+            float: none;
+            display: inline;
+        }
+
+        ul.topnav.responsive li a {
+            display: block;
+            text-align: left;
+        }
+    }
+</style>
+
+<body>
+    <ul class="topnav">
+        <li><a class="active" href="/">Home</a></li>
+        <li class="icon">
+            <a href="javascript:void(0);" style="font-size:15px;" onclick="myFunction()">☰</a>
+        </li>
+    </ul>
+
+    <div id="container">
+        <div id="monitor">
+          <div id="monitorscreen">
+            <img src="/signal.gif"/>
+          </div>
+        </div>
+      </div>
+
+</body>
+
+</html>

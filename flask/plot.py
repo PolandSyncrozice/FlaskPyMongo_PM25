@@ -48,7 +48,7 @@ def toBarplot(data,city):
                     textcoords='offset points')
         
     figure = ax.get_figure()    
-    figure.savefig('./'+'static/cities/'+city+'_bar.png', dpi=150)
+    figure.savefig('./static/cities/'+city+'_bar.png', dpi=150)
 
 def toHeatplot(data,city):
     df = pd.DataFrame(data)

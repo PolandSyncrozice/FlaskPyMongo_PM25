@@ -16,7 +16,7 @@ def index():
 @app.route('/city/<city>')
 def map_selected(city):
     data = getPM25ByCity(city)
-    plot.toHeatplot(data,city)
+    plot.toBarplot(data,city)
     plot.toHeatplot(data,city)
     return render_template('map_selected.html', city=city)
 

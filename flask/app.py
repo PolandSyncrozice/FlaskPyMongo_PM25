@@ -48,21 +48,21 @@ def pm25City(city):
 def getPM25ByCity(city):
     data = []
     for x in client['cs457'][city].find({'date': {"$regex": "/*"}}):
-        data.append({'date': x['date'], 'pm25': x[' pm25']})
+        data.append({'date': x['date'], 'pm25': x['pm25']})
     return data
 
 
 def getPM25ByCityEachYear(city,year):
     data = []
     for x in client['cs457'][city].find({'date': {"$regex": year+"/*"}}):
-        data.append({'date': x['date'], 'pm25': x[' pm25']})
+        data.append({'date': x['date'], 'pm25': x['pm25']})
     return data
 
 
 def getPM25ByCityEachMonth(city,year,mounth):
     data = []
     for x in client['cs457'][city].find({'date': {"$regex": year+"/"+month+"/*"}}):
-        data.append({'date': x['date'], 'pm25': x[' pm25']})
+        data.append({'date': x['date'], 'pm25': x['pm25']})
     return data
 
 if __name__ == '__main__':

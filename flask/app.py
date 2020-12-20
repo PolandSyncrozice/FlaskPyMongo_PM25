@@ -2,7 +2,7 @@ from flask import Flask, render_template, jsonify
 from pymongo import MongoClient
 import plot
 
-client = MongoClient('mongodb://54.254.190.113:27017/')
+client = MongoClient('mongodb://myTester:tester123@54.179.206.90:27017/?authSource=test&readPreference=primary&appname=MongoDB%20Compass&ssl=false')
 
 app = Flask(__name__, static_url_path='',
             static_folder='static', template_folder='templates')

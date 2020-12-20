@@ -13,36 +13,47 @@ def index():
     return render_template('index.html')
 
 
-@app.route('/city/<name>')
-def map_selected(name):
-    return render_template('map_selected.html', name=name)
+@app.route('/city/<city>')
+def map_selected(city):
+    data = getPM25ByCity(city)
+    plot.toHeatplot(data,city)
+    plot.toHeatplot(data,city)
+    return render_template('map_selected.html', city=city)
 
 
 @app.route('/api/<city>/<year>/<month>', methods=['GET', 'POST'])
 def pm25OneMonth(city, year, month):
-    a = []
-    for x in client['cs457'][city].find({'date': {"$regex": year+"/"+month+"/*"}}):
-        a.append({'date': x['date'], 'pm25': x[' pm25']})
-    return jsonify(a)
+    return jsonify(getPM25ByCityEachMount(city,year,mounth))
 
 
 @app.route('/api/<city>/<year>', methods=['GET', 'POST'])
 def pm25Year(city, year):
-    a = []
-    for x in client['cs457'][city].find({'date': {"$regex": year+"/*"}}):
-        a.append({'date': x['date'], 'pm25': x[' pm25']})
-    return jsonify(a)
+    return jsonify(getPM25ByCityEachYear(city,year))
 
 
 @app.route('/api/<city>', methods=['GET', 'POST'])
 def pm25City(city):
-    a = []
-    for x in client['cs457'][city].find({'date': {"$regex": "/*"}}):
-        a.append({'date': x['date'], 'pm25': x[' pm25']})
-    plot.toBarplot(a,city)
-    plot.toHeatplot(a,city)
-    return jsonify(a)
+    return jsonify(getPM25ByCity(city))
 
+def getPM25ByCity(city):
+    data = []
+    for x in client['cs457'][city].find({'date': {"$regex": "/*"}}):
+        data.append({'date': x['date'], 'pm25': x[' pm25']})
+    return data
+
+
+def getPM25ByCityEachYear(city,year):
+    data = []
+    for x in client['cs457'][city].find({'date': {"$regex": year+"/*"}}):
+        data.append({'date': x['date'], 'pm25': x[' pm25']})
+    return data
+
+
+def getPM25ByCityEachMonth(city,year,mounth):
+    data = []
+    for x in client['cs457'][city].find({'date': {"$regex": year+"/"+month+"/*"}}):
+        data.append({'date': x['date'], 'pm25': x[' pm25']})
+    return data
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')

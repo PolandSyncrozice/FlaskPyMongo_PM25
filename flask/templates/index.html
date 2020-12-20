@@ -72,7 +72,7 @@
     }
 
     ul.topnav li.icon {
-      float: right;
+      /* float: right; */
       display: inline-block;
     }
   }
@@ -295,9 +295,12 @@
       return color(nameLength(d));
     }
 
+    String.prototype.capitalize = function() {
+      return this.charAt(0).toUpperCase() + this.slice(1).toLocaleLowerCase();
+    }
     // When clicked, zoom in
     function clicked(d) {
-      window.location = 'city/'+d.properties.CHA_NE
+      window.location = 'city/'+d.properties.CHA_NE.capitalize()
 
       
       var x, y, k;

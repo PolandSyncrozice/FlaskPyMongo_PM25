@@ -48,10 +48,9 @@ def toBarplot(data,city):
                     textcoords='offset points')
         
     figure = ax.get_figure()    
-    figure.savefig('./'+'static/city/'+city+'_bar.png', dpi=150)
+    figure.savefig('./'+'static/cities/'+city+'_bar.png', dpi=150)
 
 def toHeatplot(data,city):
-
     df = pd.DataFrame(data)
     df = df.loc[df['pm25']!=' ']
     df = df[['date','pm25']]
@@ -102,4 +101,4 @@ def toHeatplot(data,city):
     sns.set(font_scale = 2)
     ax = sns.heatmap(df,annot=True, fmt=".0f", cmap="YlOrRd", linewidths=0.05, vmin=0, vmax=200)
     figure = ax.get_figure()    
-    figure.savefig('./static/city/'+city+'_heat.png', dpi=150)
+    figure.savefig('./static/cities/'+city+'_heat.png', dpi=150)

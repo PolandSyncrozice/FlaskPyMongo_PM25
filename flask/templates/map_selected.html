@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <ul class="topnav">
-        <li><a class="active" href="index.html">Home</a></li>
+        <li><a class="active" href="/">Home</a></li>
         <li class="icon">
             <a href="javascript:void(0);" style="font-size:15px;" onclick="myFunction()">☰</a>
         </li>
@@ -15,7 +15,7 @@
 <body>
     <h1 style="text-align: center;" id="name_province"></h1>
     <div class="container">
-        <div class="card card0">
+        <div class="card card0" onclick="onBar()">
             <div class="border">
                 <h2>Barplot</h2>
                 <div class="icons">
@@ -27,7 +27,7 @@
                 </div>
             </div>
         </div>
-        <div class="card card1">
+        <div class="card card1" onclick="onHeat()">
             <div class="border">
                 <h2>Heatmap</h2>
                 <div class="icons">
@@ -41,11 +41,104 @@
         </div>
     </div>
     
-    <div class="selected_show_img">
-        <img src="/static/thumbnail.png"/>
+    <div id="container_1">
+   
+        <div id="monitor">
+            <div class="selected_show_img" id="bar">
+                <img src="/cities/Bangkok_bar.png"/>
+            </div>
+        
+        
+            <div class="selected_show_img" id="heat" style="display:none">
+                <img src="/cities/Bangkok_heat.png"/>
+            </div>
+        </div>
+
     </div>
+      
+
 </body>
 <style>
+
+  #monitor {
+    background: #000;
+    position: relative;
+    margin: 5%;
+    transition: margin-right 1s;
+  }
+
+  #monitor img {
+      height: 55%;
+      width: 100%;
+  }
+
+  #monitor:after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 3%;
+    left: 36%;
+    height: .5%;
+    width: 28%;
+    background: #ddd;
+    border-radius: 50%;
+    box-shadow: 0 0 3px 0 white;
+  }
+
+  @media all and (min-width: 960px) {
+    #monitor {
+      -webkit-animation: tvflicker .2s infinite alternate;
+      -moz-animation: tvflicker .5s infinite alternate;
+      -o-animation: tvflicker .5s infinite alternate;
+      animation: tvflicker .5s infinite alternate;
+    }
+
+    @-webkit-keyframes tvflicker {
+      0% {
+        box-shadow: 0 0 100px 0 rgba(200, 235, 255, 0.4);
+      }
+
+      100% {
+        box-shadow: 0 0 95px 0 rgba(200, 230, 255, 0.45);
+      }
+    }
+
+    @-moz-keyframes tvflicker {
+      0% {
+        box-shadow: 0 0 100px 0 rgba(225, 235, 255, 0.4);
+      }
+
+      100% {
+        box-shadow: 0 0 60px 0 rgba(200, 220, 255, 0.6);
+      }
+    }
+
+    @-o-keyframes tvflicker {
+      0% {
+        box-shadow: 0 0 100px 0 rgba(225, 235, 255, 0.4);
+      }
+
+      100% {
+        box-shadow: 0 0 60px 0 rgba(200, 220, 255, 0.6);
+      }
+    }
+
+    @keyframes tvflicker {
+      0% {
+        box-shadow: 0 0 100px 0 rgba(225, 235, 255, 0.4);
+      }
+
+      100% {
+        box-shadow: 0 0 60px 0 rgba(200, 220, 255, 0.6);
+      }
+    }
+  }
+
+  #container_1 {
+    max-width: 1024px;
+    margin: auto;
+  }
+
     body {
         background: linear-gradient(120deg, #3b5998, #FFFFFF);
     }
@@ -58,9 +151,8 @@
         align-items: center;
         padding: 48px;
     }
-    .selected_show_img img{
-        
-    }
+  
+
     .container {
         height: 10vh;
         width: 50vw;
@@ -248,5 +340,21 @@
         height: 100%;
     }
 </style>
+
+<script>
+      var heat = document.getElementById("heat");
+      var bar = document.getElementById("bar");
+
+    function onBar() {
+        bar.style.display = "block";
+        heat.style.display = "none";
+    }
+   
+    function onHeat() {
+        heat.style.display = "block";
+        bar.style.display = "none";
+    }
+
+    </script>
 
 </html>

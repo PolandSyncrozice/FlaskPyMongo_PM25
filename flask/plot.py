@@ -5,6 +5,9 @@ import json
 
 
 def toBarplot(data,city):
+    plt.cla()
+    plt.clf()
+
     df = pd.DataFrame(data)
     df = df.loc[df['pm25']!=' ']
     df = df[['date','pm25']]
@@ -52,6 +55,9 @@ def toBarplot(data,city):
 
 
 def toHeatplot(data,city):
+    plt.cla()
+    plt.clf()
+
     df = pd.DataFrame(data)
     df = df.loc[df['pm25']!=' ']
     df = df[['date','pm25']]
